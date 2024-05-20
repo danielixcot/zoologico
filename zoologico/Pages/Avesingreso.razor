@@ -26,11 +26,10 @@
     <div class="form-group">
         <label for="Vida">Tiempo máximo de vida</label>
         <InputNumber id="Vida" @bind-Value="aves.Vida" class="form-control" />
-       
     </div>
     <div class="form-group">
         <label for="Volar">Vuela la ave</label>
-        <InputText id="Volar" @bind-Value="aves.Volar" class="form-control" />
+        <InputCheckbox id="Volar" @bind-Value="aves.Volar" class="form-check-input" />
         <ValidationMessage For="() => aves.Volar" />
     </div>
     <div class="form-group">
@@ -71,13 +70,13 @@
                     <td>@aves.Incubacion</td>
                 <td>
                         <button class="btn btn-danger"
-                                @onclick="@(() => Borrar(aves.Volar))">
+                                @onclick="@(() => Borrar(aves.Nombre))">
                             Eliminar
                         </button>
                     </td>
                     <td>
                         <button class="btn btn-warning"
-                                @onclick="@(() => NavigationManager.NavigateTo($"/editar-ave/{aves.Volar}"))">
+                                @onclick="@(() => NavigationManager.NavigateTo($"/editar-ave/{aves.Nombre}"))">
                             Editar
                         </button>
                     </td>
@@ -96,9 +95,9 @@
         aves = new Aves();
         await localStorage.SetItemAsync("aveses", aveses);
     }
-    protected async Task Borrar(string Volar)
+    protected async Task Borrar(string Nombre)
     {
-        aveses.Remove(aveses.First(c => c.Volar == Volar));
+        aveses.Remove(aveses.First(c => c.Nombre == Nombre));
         await localStorage.SetItemAsync("aveses", aveses);
 
     }

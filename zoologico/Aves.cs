@@ -2,11 +2,11 @@
 {
     public class Aves:Animal
     {
-        public string Volar {  get; set; }
+        public bool Volar {  get; set; }
         public int Incubacion { get; set; }
         public Aves()
         {   
-            Volar = string.Empty;
+            Volar = false;
             Incubacion = 0; 
         }
     }
