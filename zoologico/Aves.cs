@@ -5,8 +5,8 @@
         public string Volar {  get; set; }
         public int Incubacion { get; set; }
         public Aves()
-        {
-            Volar = string.Empty;   
+        {   
+            Volar = string.Empty;
             Incubacion = 0; 
         }
     }
